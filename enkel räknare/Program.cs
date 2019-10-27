@@ -4,22 +4,17 @@ namespace enkel_räknare
 {
     class Program
     {
-       
+        public string ConsolePrompt;
      
         static void Main(string[] args)
         {
-            
+
             {
                 double firstNum;
                 double secondNum;                   //Variables for equation
                 string operation;
                 double answer;
-                
-                var prompter = new ConsolePrompt(null);
-                var valdidoperations = new[] { "x", "/", "+", "-" };
-                var firstNum = prompter.Prompt<int>("enter first number", PromptOptions.Required);
-                var secoundNum = prompter.Prompt<int>("enter your operation", PromptOptions.Required);
-                var operation = prompter.Prompt<string>("enter your secound number("+string.Join(",", valdidoperations) +")", PromptOptions.Required, validationMethod: x => valdidoperations.Contains(x));
+
 
 
 
@@ -35,7 +30,22 @@ namespace enkel_räknare
                 Console.Write("Ok now enter your operation ( x , / , +, -) ");
                 operation = Console.ReadLine();
 
-                switch (operation)
+                var operations = new Dictionary<string, Func<int, int, int>>
+                {
+                    { "x", (x, y) => x * y }
+                    { "x", (x, y) => x / y }
+                    { "x", (x, y) => x + y }
+                    { "x", (x, y) => x - y }
+
+                };
+            }
+            var prompter = new ConsolePrompt(null);
+            var valdidoperations = new[] { "x", "/", "+", "-" };
+            var firstNum = prompter.Prompt<int>("enter first number", PromptOptions.Required);
+            var secoundNum = prompter.Prompt<int>("enter your operation", PromptOptions.Required);
+            var operation = prompter.Prompt<string>("enter your secound number(" + string.Join(",", valdidoperations) + ")", PromptOptions.Required, validationMethod: x => valdidoperations.Contains(x));
+
+            switch (operation)
                 {
 
                 
