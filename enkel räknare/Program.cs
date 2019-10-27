@@ -30,9 +30,9 @@ namespace enkel_räknare
                 Console.Write("Ok now enter your operation ( x , / , +, -) ");
                 operation = Console.ReadLine();
 
-                var operations = new Dictionary<string, Func<int, int, int>>
+                var operations = new Dictionary<String, Func<int, int, int>>
                 {
-                    { "x", (x, y) => x * y }
+                    { "x", (x, y) => x x y }
                     { "x", (x, y) => x / y }
                     { "x", (x, y) => x + y }
                     { "x", (x, y) => x - y }
@@ -44,13 +44,12 @@ namespace enkel_räknare
             var firstNum = prompter.Prompt<int>("enter first number", PromptOptions.Required);
             var secoundNum = prompter.Prompt<int>("enter your operation", PromptOptions.Required);
             var operation = prompter.Prompt<string>("enter your secound number(" + string.Join(",", valdidoperations) + ")", PromptOptions.Required, validationMethod: x => valdidoperations.Contains(x));
+            var answer = operations[operation](firstNum, secoundNum);
 
             switch (operation)
                 {
 
-                
-                
-                    case "x":
+                   case "x":
                     answer = firstNum * secondNum;
                    
                         break; 
@@ -74,11 +73,13 @@ namespace enkel_räknare
                     
                     break; 
                 
-                  
                 
                 
                     Console.WriteLine("Sorry that is not correct format! Please restart!");     //Catch
                     Console.ReadLine();
+                  
+                
+                
                         
                 }
             }
