@@ -4,14 +4,17 @@ namespace enkel_räknare
 {
     class Program
     {
+        private static object secondNum;
         public string ConsolePrompt;
+        public static object firstNum;
+
      
         static void Main(string[] args)
         {
 
             {
                 double firstNum;
-                double secondNum;                   //Variables for equation
+                double secondNum;                   //känns som jag har gjort något dålig/blandat kod, men kan inte sätta tummen vart
                 string operation;
                 double answer;
 
@@ -24,9 +27,9 @@ namespace enkel_räknare
                 Console.Write("Enter the first number in your basic equation: ");
                 firstNum = Convert.ToInt32(Console.ReadLine());
 
-                //User input for equation
+                
                 Console.Write("Now enter your second number in the basic equation: ");
-                secondNum = Convert.ToInt32(Console.ReadLine()); //något fel här med input
+                secondNum = Convert.ToInt32(Console.ReadLine()); //något fel här med input. när man testa den första gången
                 Console.Write("Ok now enter your operation ( x , / , +, -) ");
                 operation = Console.ReadLine();
 
@@ -72,10 +75,12 @@ namespace enkel_räknare
                     answer = firstNum - secondNum;
                     
                     break; 
-                
-                
-                
-                    Console.WriteLine("Sorry that is not correct format! Please restart!");     //Catch
+
+                    Console.WriteLine($"{firstNum} {operation} {secondNum} = {answer}");
+
+
+
+                    Console.WriteLine("Sorry that is not correct format! Please restart!");     
                     Console.ReadLine();
                   
                 
